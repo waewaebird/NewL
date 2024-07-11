@@ -1,6 +1,7 @@
 package spring.di;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spring.di.entity.Exam;
 import spring.di.entity.NewlecExam;
@@ -19,7 +20,8 @@ public class Program {
         */
 
         //지시서를 넘기는 주체 / 지시서를 넘기는 객체 ApplicationContext 인터페이스
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring/di/setting.xml");
+        //ApplicationContext context = new ClassPathXmlApplicationContext("spring/di/setting.xml");
+        ApplicationContext context = new AnnotationConfigApplicationContext(NewlecDiConfig.class);
 
         //Exam exam = context.getBean(Exam.class);
         //System.out.println(exam.toString());

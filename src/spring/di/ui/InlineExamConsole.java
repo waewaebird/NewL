@@ -2,11 +2,12 @@ package spring.di.ui;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import spring.di.entity.Exam;
-
+@Component("console")
 public class InlineExamConsole implements ExamConsole {
-    @Autowired(required = false) //자동으로 객체를 연결해라
-    @Qualifier("exam1")
+    @Autowired //자동으로 객체를 연결해라
+    //@Qualifier("exam1")
     private Exam exam;
 
     public InlineExamConsole(Exam exam) {

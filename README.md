@@ -86,3 +86,55 @@ Ioc 컨테이너
 
 13.
 IoC 컨테이너 (객체를 담는 그릇)
+
+16.
+@Component 클래스는 모두 객체화 할 수 있음
+MVC 웹 어플리케이션을 구성하는 업무 로직 및 코드 = component
+
+@Controller
+@Service
+@Repository
+@Component클래스의 명시화
+
+Controller  - Service - Repository(Dao)
+
+18.
+기존 Object Oriented Programming
+신규 기존 Aspect Oriented Programming
+
+주 업무 로직외 개발자 or 운영자가 필요한 부가적인 코드, 관점이 다른 업무(로그 처리, 보안 처리, 트랜잭션 처리)
+Cross-cutting Concern이라고 한다네
+
+부업무
+주업무
+부업무
+
+예전에는 주업무, 부업무 cutting 하기가 어려웠음.
+
+부업무를 쉽게 뺏다 꽂았다 하는 방법 -> Proxy 
+
+
+Cross-cutting Concern 먼저 호출 Core Concers 갔다와서 다시 Cross-cutting Concern
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
