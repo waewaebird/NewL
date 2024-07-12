@@ -54,11 +54,14 @@ public class NewlecExam implements Exam {
         //long start = System.currentTimeMillis();
         int result = kor+eng+math+com;
 
-        /*try {
+        if(kor > 100) {
+            throw new IllegalArgumentException("유효하지 않은 국어점수");
+        }
+        try {
             Thread.sleep(200);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
-        }*/
+        }
 
         //long end = System.currentTimeMillis();
 
