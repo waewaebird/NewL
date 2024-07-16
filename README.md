@@ -1,61 +1,59 @@
 # NewL
 
 1.
-엔터프라이즈 에디션 - 분산형, 기업형 웹 응용 프로그램
-엔터프라이즈 에디션 - dao, service : DB 커넥션 관리가 서비스 계층 서비스 함수 jdbc커넥션 공유하기 어려운면이 있음.
 
-스프링 : 라이브러리 쓰는 방법을,  Java EE영역을 Spring으로 대체함.
+Spring은 dependency injection + transaction management 쉽게 제공. 
 
-Spring
-JAVA SE
+엔터프라이즈 에디션 - 분산형, 기업형 웹 응용 프로그램 + dao, service : DB 커넥션 관리가 서비스 계층 서비스 함수 jdbc커넥션 공유하기 어려운면이 있음.
+스프링 - 라이브러리 쓰는 방법을,  Java EE영역을 Spring으로 대체함.
+
+JAVA SE 위에 Spring 올려서 개발
 
 웹 프로그램
 MVC / Transaction / 인증과 권한
 
-Di /    AOP 	  / Servlet Filter
+DI /    AOP 	  / Servlet Filter
 
-느슨한 결합력과 인터페이스
+DI와 AOP를 이해하기 위해선 느슨한 결합력과 인터페이스 이해 필요
 
 2.
 Layer => UI - Service - DAO - Data
-
-
 Layer => UI - Service - InterFace(DAO) - DAO - Data
-자료형 을 인터페이스로
 
-객체의 생성과 조립을 외부파일 or외부설정으로(XML, Annotation)
+자료형을 인터페이스로 서비스레이어간 결합도를 낮춤 / 생성할 객체를 외부에 둠. 객체의 생성과 조립을 외부파일 or외부설정으로(XML, Annotation)
 
 3.
-스프링에서 객체를 생성 조립해준다.
+스프링에서 객체를 생성 + 조립해준다.
 
-DI 쉽게 부품조리
+DI = 부품조립
 
 - Composition has a 일체형
   class A {
-  private B b; //종속객체, 부품
+    private B b; //종속객체, 부품 , A가 B클래스를 이용, B는 A의 부품
 
-  public A() {
-  b = new B(); //직접객체를 생성해서 갖음
+    public A() {
+      b = new B(); //직접객체를 생성해서 갖음
+    }
   }
-  }
+  ==================================
   A a = new A(); // 이 안에서 어떤 부품이 있는지 알 수 없음
 
 
 - Association has a 조립형
   class A {
-  private B b;
+    private B b;
 
-  public A() {
-  }
+    public A() {
+    }
 
-  public void setB(B b) {
-  this.b = b; // 외부에서 생성된것을 갖고 있음
+    public void setB(B b) {
+      this.b = b; // 외부에서 생성된것을 갖고 있음
+    }
   }
-  }
+- ==================================
   B b = new B(); //Dependency
   A a = new A();
-
-a.setB(b); //Injection
+  a.setB(b); //Injection
 이렇게 조립형으로 하면 쉽게 부품을 바꿀수 있음
 단점은, 조립을 해야하는 불편함이 있다.
 
@@ -67,15 +65,15 @@ Spring의 가장 큰 능력은 부품조립이다! 스프링이 조립해줌.
 
 
 4.
-Ioc 컨테이너
+IoC 컨테이너
 
-부품 주문서 대로 부품을 생성해서 보관하는게 컨테이너
+부품 주문서(xml & Annotation) 대로 부품을 생성해서 보관하는게 컨테이너
 
 일체형에서는 더큰부품 + 큰부품 + 작은부품
 
-조립형에서는 작은부품 + 큰부품 + 더큰부품 이렇게 조립
+결합형에서는 작은부품 + 큰부품 + 더큰부품 이렇게 조립
 
-즉 조립형에서는 순서가 Inversion of Control
+즉 조립형에서는 순서가 Inversion of Control , 역순으로 조립하는 컨테이너
 
 
 
